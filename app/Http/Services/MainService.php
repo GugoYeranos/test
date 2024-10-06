@@ -34,9 +34,9 @@ class MainService
 
     /**
      * @param Request $request
-     * @return LengthAwarePaginator
+     * @return string|LengthAwarePaginator
      */
-    public function index(Request $request): LengthAwarePaginator
+    public function index(Request $request): string|LengthAwarePaginator
     {
         $selectedCity = $request->session()->get('selected_city');
 
