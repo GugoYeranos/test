@@ -28,7 +28,6 @@ class ParseCitiesRu extends Command
 
     protected $transliterator;
 
-    // Constructor
     public function __construct()
     {
         parent::__construct();
@@ -51,7 +50,6 @@ class ParseCitiesRu extends Command
                 if ($country['name'] == 'Россия') {
                     $cities = $this->getCitiesFromCountries($country['areas']);
 
-//                    dd($cities);
                     City::insert($cities);
                     $this->info('Cities loaded successfully!');
                 }

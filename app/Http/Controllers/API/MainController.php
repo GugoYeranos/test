@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCityRequest;
 use App\Http\Services\API\MainService;
 use App\Http\ServerResponse\ServerResponse;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\JsonResponse;
 
 class MainController extends Controller
 {
@@ -20,7 +21,11 @@ class MainController extends Controller
         $this->mainService = $mainService;
     }
 
-    public function store(StoreCityRequest $request)
+    /**
+     * @param StoreCityRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(StoreCityRequest $request): JsonResponse
     {
         $result = ServerResponse::RESPONSE_200;
 
@@ -34,7 +39,13 @@ class MainController extends Controller
         return response()->json($result);
     }
 
-    public function destroy(int $id)
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface\
+     */
+    public function destroy(int $id): JsonResponse
     {
         $result = ServerResponse::RESPONSE_200;
 

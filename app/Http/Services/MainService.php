@@ -53,7 +53,6 @@ class MainService
      */
     public function getCities(): LengthAwarePaginator
     {
-//        $cities = City::orderBy('name', 'asc')->get();
         $cities = City::orderBy('name', 'asc')->paginate(200);
         return $cities;
     }
