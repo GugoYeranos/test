@@ -63,10 +63,7 @@ class MainService
      */
     public function getCity(string $city): City
     {
-        $selected_city = City::select('name')->where('slug', $city)->first();
-        if(is_null($selected_city)){
-            abort(404);
-        }
+        $selected_city = City::select('name')->where('slug', $city)->firstOrFail();
         return $selected_city;
     }
 }
